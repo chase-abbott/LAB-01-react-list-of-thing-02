@@ -1,8 +1,7 @@
 .CreatureItem {
     display: grid;
-    grid-template-rows: auto 160px auto auto auto;
-    grid-template-columns: 180px;
-    grid-gap: 10px;
+    grid-template-rows: auto 160px auto auto minmax(auto, 22px);
+    grid-gap: 5px;
     
     justify-items: center;
 
@@ -14,11 +13,13 @@
 .CreatureItem h2 {
     margin-top: 0;
     margin-bottom: .25rem;
+    max-width: 80%;
+    
 }
 
 .CreatureItem img {
     height: 100%;
-    width: 100%;
+    width: 80%;
     object-fit: contain;
 }
 
