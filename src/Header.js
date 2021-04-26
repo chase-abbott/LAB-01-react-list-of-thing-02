@@ -3,7 +3,9 @@ import { Component } from 'react';
 class Header extends Component {
   render() {
     return (
-      <h1 className="Header"> All the Horned Creatures </h1>
+      <header>
+        <h1 className="Header"> All the Horned Creatures </h1>
+      </header>
     );
   }
 }
