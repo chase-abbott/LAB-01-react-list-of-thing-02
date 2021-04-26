@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="Footer"> 
-            The best creatures in the world!
+           The Best Creatures in the World!
       </footer>
     );
   }

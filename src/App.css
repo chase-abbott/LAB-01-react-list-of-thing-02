@@ -1,8 +1,7 @@
 .App {
   display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px
 }
 
 /* TODO: remove **/
-.temp-images {
-  height: 200px;
-}

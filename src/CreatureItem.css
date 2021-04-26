@@ -6,7 +6,7 @@
     
     justify-items: center;
 
-    background-color: white;
+    background-color: whitesmoke;
 
     border-radius: 10%;
 }
@@ -25,10 +25,5 @@
 .CreatureItem p {
     margin: 0;
     text-align: center;
-    
-}
-
-.CreatureItem:nth-child(3) {
-    margin-left: 1rem;
 }
 
