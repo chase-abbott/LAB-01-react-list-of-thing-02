@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Header from './Header';
+import CreatureList from './CreatureList';
 import Footer from './Footer';
 import './App.css';
 import React from 'react';
@@ -12,7 +13,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
-         
+          <CreatureList/>
         </main>
         <Footer />
       </div>
