@@ -5,6 +5,7 @@ export default class CreatureSearch extends Component {
   state = {
     nameFilter: '',
     sortField : '',
+    typeSort: '',
   }
 
   handleNamerFilter = ({ target }) => {
@@ -15,13 +16,17 @@ export default class CreatureSearch extends Component {
     this.setState({ sortField : target.value });
   }
 
+  handleTypeSort = ({ target }) => {
+    this.setState({ typeSort : target.value });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSearch(this.state);
   }
 
   render() {
-    const { nameFilter, sortField } = this.state;
+    const { nameFilter, sortField, typeSort } = this.state;
     return (
       <form 
         className="CreatureSearch"
@@ -42,6 +47,24 @@ export default class CreatureSearch extends Component {
           <option value=""> sort.. </option>
           <option value="name"> name </option>
           <option value="horns"> horns </option>
+        </select>
+
+        <select 
+          name="typeSort"
+          value={typeSort}
+          onChange={this.handleTypeSort}
+        >
+          <option value=""> type.. </option>
+          <option value="narwhal"> narwhal </option>
+          <option value="rhino"> rhino </option>
+          <option value="unicorn"> unicorn </option>
+          <option value="unilego"> unilego </option>
+          <option value="triceratops"> triceratops </option>
+          <option value="markhor"> markhor </option>
+          <option value="mouflon"> mouflon </option>
+          <option value="chameleon"> chameleon </option>
+          <option value="lizard"> lizard </option>
+          <option value="dragon"> dragon </option>
         </select>
 
         <button>✔</button>

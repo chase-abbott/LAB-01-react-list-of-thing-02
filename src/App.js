@@ -7,18 +7,22 @@ import { creatures } from './creatures.js';
 import './App.css';
 import React from 'react';
 
+const creatureTypes = [...new Set(creatures.map(c => c.keyword))];
 
 class App extends Component {
 state = {
   creatures: creatures
 }
 
-  handleSearch = ({ nameFilter, sortField }) => {
+  handleSearch = ({ nameFilter, typeSort, sortField }) => {
     const creatureRegex = new RegExp(nameFilter, 'i');
 
     const newData = creatures
       .filter(c => {
         return !nameFilter || c.title.match(creatureRegex);
+      })
+      .filter(c => {
+        return !typeSort || c.keyword === typeSort;
       })
       .sort((a, b) => {
         if (a[sortField] < b[sortField]) return -1;
@@ -35,7 +39,7 @@ state = {
     return (
       <div className="App">
         <Header />
-        <CreatureSearch onSearch={this.handleSearch}/>
+        <CreatureSearch typesProp={creatureTypes} onSearch={this.handleSearch}/>
         <main>
           <CreatureList creatures={creatures}/>
         </main>
