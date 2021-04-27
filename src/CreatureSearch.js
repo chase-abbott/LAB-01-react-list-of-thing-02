@@ -17,7 +17,7 @@ export default class CreatureSearch extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    
+    this.props.onSearch(this.state);
   }
 
   render() {
@@ -29,11 +29,13 @@ export default class CreatureSearch extends Component {
       >
 
         <input
+          name="nameFilter"
           value={nameFilter}
           onChange={this.handleNamerFilter}
         />
 
         <select 
+          name="sortField"
           value={sortField}
           onChange={this.handleSortField}
         >
