@@ -1,7 +1,9 @@
 .CreatureList {
     list-style: none;
+    background-color: rgb(185, 238, 185);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px;
     justify-items: center;
+    margin: 0;
 }
