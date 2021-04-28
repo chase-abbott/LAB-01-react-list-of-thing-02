@@ -24,11 +24,7 @@ state = {
       .filter(c => {
         return !typeSort || c.keyword === typeSort;
       })
-      .sort((a, b) => {
-        if (a[sortField] < b[sortField]) return -1;
-        if (a[sortField] > b[sortField]) return 1;
-        return 0;
-      });
+      .sort((a, b) => a[sortField] - b[sortField]);
 
     this.setState({ creatures: newData });
   }
