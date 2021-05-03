@@ -25,6 +25,14 @@ export default class CreatureSearch extends Component {
     this.props.onSearch(this.state);
   }
 
+  
+  // included in marty's code but dont like the user experience of seeing the filtered items before submit
+  // componentDidUpdate(prevProp, prevState) {
+  //   if (prevState !== this.state) {
+  //     this.props.onSearch(this.state);
+  //   }
+  // }
+
   render() {
     const { nameFilter, sortField, typeSort } = this.state;
     return (
