@@ -3,18 +3,34 @@ import Header from './Header';
 import CreatureSearch from './CreatureSearch';
 import CreatureList from './CreatureList';
 import Footer from './Footer';
-import { creatures } from './creatures.js';
+import request from 'superagent';
+
 import './App.css';
 import React from 'react';
 
-const creatureTypes = [...new Set(creatures.map(c => c.keyword))];
+const CREATURE_API_URL = 'https://lab-06-servers.herokuapp.com/api/creatures';
+
 
 class App extends Component {
-state = {
-  creatures: creatures
-}
+  state = {
+    creatures: [],
+    creatureTypes: []
+  }
+  
+  
+  async componentDidMount(){
+
+    const response = await request
+      .get(CREATURE_API_URL);
+    
+    const creatureTypes = [...new Set(this.state.creatures.map(c => c.keyword))];
+
+    this.setState({ creatures : response.body, creatureTypes : creatureTypes });
+  }
 
   handleSearch = ({ nameFilter, typeSort, sortField }) => {
+    const { creatures } = this.state;
+
     const creatureRegex = new RegExp(nameFilter, 'i');
 
     const newData = creatures
@@ -30,7 +46,7 @@ state = {
   }
 
   render() {
-    const { creatures } = this.state;
+    const { creatures, creatureTypes } = this.state;
    
     return (
       <div className="App">
